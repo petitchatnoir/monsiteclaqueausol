@@ -1,0 +1,106 @@
+body{
+  font-family: Avenir;
+  margin: 0px;
+}
+.container{
+  text-align: center;
+  font-family: avenir;
+  padding-bottom: 10%;
+}
+.navbar{
+  background-color: #d3d3d3;
+  padding: 0px;
+  margin: 0px;
+}
+ul{
+  list-style-type: none;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+li{
+  float: left;
+}
+li a{
+  text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+}
+li a:hover{
+  background-color: grey;
+}
+img{
+  max-width: 150px;
+}
+.imageContainer{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.imageContainer > div{
+  display: flex;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+}
+.image{
+  margin: 20px;
+}
+input{
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  background-color: #d3d3d3;
+}
+#res{
+  border: 2px solid #d3d3d3;
+  width: 98%;
+  text-align: center;
+}
+#calculator{
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#morpion{
+  width: 310px;
+  height: 310px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#morpion input {
+  height: 100px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.part{
+  display: none;
+}
+#image{
+  display: block;
+}
+#morpion > a{
+  cursor: pointer;
+}
+#guessprice{
+  background-color: white;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#guessprice input{
+  background-color: white;
+  border: 2px solid #d3d3d3
+}
+#guessprice a{
+  font-weight: bold;
+  padding-left: 20px;
+  cursor: pointer;
+}

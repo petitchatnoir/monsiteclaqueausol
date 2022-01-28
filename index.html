@@ -1,195 +1,101 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Hugo Krawczyk</title>
-  <link rel="stylesheet" href="./style/main.css">
+  <title>Lugotrip</title>
+  <link href="./style/style.css" rel="stylesheet" />
 </head>
 
 <body>
   <div class="navbar">
-    <a id="logo" href="#">Lugotrip</a>
+    <ul>
+      <li><a onclick="showPart(image)">Images</a></li>
+      <li><a onclick="showPart(calculatrice)">Calculatrice</a></li>
+      <li><a onclick="showPart(justeprix)">Juste prix</a></li>
+      <li><a onclick="showPart(morpion)">Morpion</a></li>
+    </ul>
   </div>
 
-  <div class="content">
-    <h2 id="formation">Formation</h2>
-    <table>
-      <thead>
-          <tr>
-              <th>Faculté des sciences Jean Perrin, Lens</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>2021 : Master 2 informatique, parcours intelligence artificielle, mention AB (major semestre 3)</td>
-          </tr>
-          <tr>
-              <td>2020 : Master 1 informatique, mention TB (major semestre 2)</td>
-          </tr>
-          <tr>
-              <td>2019 : Licence informatique, mention B (major)</td>
-          </tr>
-      </tbody>
+  <div class="container">
+    <div class="part" id="image">
+      <h1>Images</h1>
 
-      <thead>
-          <tr>
-              <th>Institut universitaire de technologie, Lens</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>2018 : Licence professionnelle conception, développement et tests de logiciels, mention AB</td>
-          </tr>
-          <tr>
-              <td>2017 : D.U.T. informatique</td>
-          </tr>
-      </tbody>
-    </table>
+      <div class="imageContainer" onclick="rotateImage()">
+        <div class="image"><img src="./assets/1.png" alt=""></div>
+        <div class="image"><img src="./assets/2.png" alt=""></div>
+        <div class="image"><img src="./assets/3.png" alt=""></div>
+        <div class="image"><img src="./assets/4.png" alt=""></div>
+      </div>
+    </div>
 
-    <h2 id="experiences">Expériences professionnelles</h2>
-    <table>
-      <thead>
+    <div class="part" id="calculatrice">
+      <h1>Calculatrice</h1>
+      <table id="calculator">
           <tr>
-            <th>Mars - Septembre 2021 : Stage de recherche, CRIL, Lens</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>Recherches sur l’extraction de motifs graduels dans de grands volumes de données. État de l’art et implémentation des principaux algorithmes (Python, C). Comparaison des performances avec l’approche retenue, basée sur le problème de satisfaisabilité. Introduction de nouvelles contraintes.</td>
-          </tr>
-      </tbody>
+              <td colspan="4"><input type="text" id="res"/></td>
+           </tr>
+           <tr>
+              <td><input type="button" value="1" onclick="put('1')"/></td>
+              <td><input type="button" value="2" onclick="put('2')"/></td>
+              <td><input type="button" value="3" onclick="put('3')"/></td>
+              <td><input type="button" value="/" onclick="put('/')"/></td>
+           </tr>
+           <tr>
+              <td><input type="button" value="4" onclick="put('4')"/></td>
+              <td><input type="button" value="5" onclick="put('5')"/></td>
+              <td><input type="button" value="6" onclick="put('6')"/></td>
+              <td><input type="button" value="-" onclick="put('-')"/></td>
+           </tr>
+           <tr>
+              <td><input type="button" value="7" onclick="put('7')"/></td>
+              <td><input type="button" value="8" onclick="put('8')"/></td>
+              <td><input type="button" value="9" onclick="put('9')"/></td>
+              <td><input type="button" value="+" onclick="put('+')"/></td>
+           </tr>
+           <tr>
+              <td><input type="button" value="." onclick="put('.')"/></td>
+              <td><input type="button" value="0" onclick="put('0')"/></td>
+              <td><input type="button" value="=" onclick="compute()"/></td>
+              <td><input type="button" value="*" onclick="put('*')"/></td>
+           </tr>
+        </table>
+    </div>
 
-      <thead>
-          <tr>
-            <th>Mars - Juin 2019 : Stage, Wezaart, Lens</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>Mise en place de la chaine d’intégration continue et des tests unitaires, utilisation avancée de GitLab et d’Amazon AWS. Développement de fonctionnalités sous AngularJS.</td>
-          </tr>
-      </tbody>
+    <div class="part" id="justeprix">
+      <h1>Juste prix</h1>
+      <table id="guessprice">
+        <tr>
+          <td colspan="4"><input type="text" id="myguess"/></td>
+          <td colspan="1"><a onclick="guess(myguess)">Entrer</a></td>
+        </tr>
+      </table>
+      <h2 id="indice"></h2>
+    </div>
 
-      <thead>
-          <tr>
-            <th>Mars - Juillet 2018 : Stage, Eiffage Energie Electronique, Verquin</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>Extraction des données issues des machines de production. Conception de bases de données MySQL en vue de leur stockage. Création d’interfaces web sous AngularJS pour leur exploitation. Mise en place de Raspberry affichant les indicateurs de performance calculés.</td>
-          </tr>
-      </tbody>
-
-      <thead>
-          <tr>
-            <th>Avril - Septembre 2017 : Stage puis CDD, Sineo, Pérenchies</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>Création d’une application de suivi du reconditionnement des véhicules avec Symfony 3. Mise en production de l’application et achat du matériel nécessaire. Formation des experts Peugeot/ Citroën dans une dizaine de concessions à son utilisation. Production de données décisionnelles.</td>
-          </tr>
-      </tbody>
-
-      <thead>
-          <tr>
-            <th>Avril - Juillet 2016 : Stage, Orange, Lens</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>Extraction de données issues de Business Objects et stockage dans des bases de données MySQL. Création d’interfaces web en PHP/Javascript de visualisation des KPI.</td>
-          </tr>
-      </tbody>
-    </table>
-
-    <h2 id="competences">Compétences</h2>
-    <table>
-      <thead>
-          <tr>
-            <th>Science des données</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>Nettoyage et pré-traitement des données</td>
-          </tr>
-          <tr>
-            <td>Réduction dimensionnelle, sélection de caractéristiques</td>
-          </tr>
-          <tr>
-            <td>Algorithmes d’apprentissage (Linear/Logistic regression, SVM, KNN, Naive Bayes, Decision Tree, Random Forest, Neural network, ...)</td>
-          </tr>
-      </tbody>
-
-      <thead>
-          <tr>
-            <th>Cloud (en cours d’apprentissage)</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>Google Cloud Platform : Cloud Storage, BigQuery, Pub/Sub, DataFlow, Data Studio, Kubernetes</td>
-          </tr>
-          <tr>
-            <td>AWS et Azure</td>
-          </tr>
-      </tbody>
-
-      <thead>
-          <tr>
-            <th>Langages de programmation</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>Python (Numpy, Pandas, Scikit-Learn, Matplotlib, Tensorflow, Keras, Flask)</td>
-          </tr>
-          <tr>
-            <td>C / Java / Go / Haskell / Prolog</td>
-          </tr>
-          <tr>
-            <td>HTML / CSS / PHP (Symfony) / JavaScript (Angular)</td>
-          </tr>
-      </tbody>
-
-      <thead>
-          <tr>
-            <th>Base de données</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>SQL / PL/pgSQL / NoSQL (Elasticsearch)</td>
-          </tr>
-      </tbody>
-
-      <thead>
-          <tr>
-            <th>Génie logiciel</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>Git / Intégration et déploiement continu / Tests logiciels / Patrons de conception</td>
-          </tr>
-      </tbody>
-
-      <thead>
-          <tr>
-            <th>Anglais</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>945/990 au TOEIC, très bon niveau à l’écrit, bon niveau à l’oral</td>
-          </tr>
-      </tbody>
-    </table>
-
-    <h2 id="interets">Centres d'intérêts</h2>
-    <p>Pour en savoir plus sur mes centres d'intérêts, ça se passe <strong><a href="./hobbies.html">ici</a></strong> !</p>
+    <div class="part" id="morpion">
+      <h1>Morpion</h1>
+      <table id="game">
+         <tr>
+            <td><input type="button" onclick="play(this)"/></td>
+            <td><input type="button" onclick="play(this)"/></td>
+            <td><input type="button" onclick="play(this)"/></td>
+         </tr>
+         <tr>
+            <td><input type="button" onclick="play(this)"/></td>
+            <td><input type="button" onclick="play(this)"/></td>
+            <td><input type="button" onclick="play(this)"/></td>
+         </tr>
+         <tr>
+            <td><input type="button" onclick="play(this)"/></td>
+            <td><input type="button" onclick="play(this)"/></td>
+            <td><input type="button" onclick="play(this)"/></td>
+         </tr>
+      </table>
+      <h2 id="infos">Au tour de 0</h2>
+      <a onclick="clearGame()">(recommencer)</a>
+    </div>
   </div>
 </body>
+
+<script src="./script/script.js"></script>
 </html>
