@@ -2,6 +2,9 @@ var clear = false;
 var player = 0;
 var nbShots = 0;
 var rndval = 0;
+var nbEssais = 0;
+var indicePendu = 0;
+var motPendu = "root";
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -111,6 +114,47 @@ function compute(){
       }
   }
   clear = true;
+}
+
+function guessPendu(letter){
+  let char = letter.value;
+  letter.value = "";
+
+  if(document.querySelector("#infosPendu").innerHTML == "Try again !")
+    document.querySelector("#imagePendu").src = "";
+
+  document.querySelector("#infosPendu").innerHTML = motPendu.substring(0, indicePendu);
+
+  if(!(/[a-zA-Z]/).test(char) || char.length != 1){
+    document.querySelector("#infosPendu").innerHTML = "Veuillez entrer une lettre";
+    return;
+  }
+
+  if(motPendu[indicePendu] == char){
+      indicePendu++;
+      document.querySelector("#infosPendu").innerHTML = motPendu.substring(0, indicePendu);
+      if(indicePendu == motPendu.length){
+        document.querySelector("#infosPendu").innerHTML = "Bravo";
+        clearPendu();
+      }
+  }
+  else {
+    document.querySelector("#imagePendu").src = "./assets/pendu/" + nbEssais + ".png";
+    nbEssais++;
+
+    if(nbEssais == 7){
+      indicePendu = 0;
+      nbEssais = 0;
+      document.querySelector("#infosPendu").innerHTML = "Try again !";
+      return;
+    }
+  }
+}
+
+function clearPendu(){
+  indicePendu = 0;
+  nbEssais = 0;
+  document.querySelector("#imagePendu").src = "";
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {

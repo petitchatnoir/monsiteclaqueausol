@@ -104,3 +104,6 @@ input{
   padding-left: 20px;
   cursor: pointer;
 }
+#imagePendu{
+  width: 200px;
+}

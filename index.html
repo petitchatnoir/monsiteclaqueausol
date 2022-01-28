@@ -13,6 +13,7 @@
       <li><a onclick="showPart(calculatrice)">Calculatrice</a></li>
       <li><a onclick="showPart(justeprix)">Juste prix</a></li>
       <li><a onclick="showPart(morpion)">Morpion</a></li>
+      <li><a onclick="showPart(pendu)">Pendu</a></li>
     </ul>
   </div>
 
@@ -94,6 +95,19 @@
       <h2 id="infos">Au tour de 0</h2>
       <a onclick="clearGame()">(recommencer)</a>
     </div>
+
+    <div class="part" id="pendu">
+      <h1>Pendu</h1>
+      <img src="" id="imagePendu"></img>
+      <table id="guessprice">
+        <tr>
+          <td colspan="4"><input type="text" id="letter"/></td>
+          <td colspan="1"><a onclick="guessPendu(letter)">Entrer</a></td>
+        </tr>
+      </table>
+      <h2 id="infosPendu"></h2>
+    </div>
+
   </div>
 </body>
 
